@@ -22,4 +22,6 @@ function App() {
   );
 }
 
+const test = "Test";
+
 export default App;
