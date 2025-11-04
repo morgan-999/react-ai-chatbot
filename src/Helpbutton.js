@@ -1,11 +1,11 @@
-export default function helpbutton({classname, text, onclick}) {
-    return ( <helpbutton classname={classname} onclick={onclick}>
+export default function Helpbutton({classname, text, onclick}) {
+    return ( <Helpbutton classname={classname} onclick={onclick}>
         {text}
-        </helpbutton>
+        </Helpbutton>
     );
     }
 
-import helpbutton from "./helppage.js";
+/*import helpbutton from "./helppage.js";
 
 export default function App() {
     function handelclick() {
@@ -22,4 +22,4 @@ export default function App() {
             />
         </div>
     )
-}
+}*/

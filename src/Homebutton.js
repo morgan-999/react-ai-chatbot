@@ -1,11 +1,11 @@
-export default function homebutton({classname, text, onclick}) {
-    return ( <homebutton classname={classname} onclick={onclick}>
+export default function Homebutton({classname, text, onclick}) {
+    return ( <Homebutton classname={classname} onclick={onclick}>
         {text}
-        </homebutton>
+        </Homebutton>
     );
     }
     
-    import homebutton from "./homepage.js"
+    /*import homebutton from "./homepage.js"
 
     export default function App() {
         function handelclick(){
@@ -24,4 +24,4 @@ export default function homebutton({classname, text, onclick}) {
             </div>
         );
     }
-       
+      */ 

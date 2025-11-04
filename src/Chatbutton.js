@@ -5,7 +5,7 @@ export default function Chatbutton({classname, text, onclick}) {
     );
     }
 
-import Chatbutton from "./chatpage.js";
+/*import Chatbutton from "./chatpage.js";
 
 export default function App() {
     function handelclick() {
@@ -22,4 +22,4 @@ export default function App() {
             />
         </div>
     )
-}
+}*/
