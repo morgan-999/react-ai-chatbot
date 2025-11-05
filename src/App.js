@@ -1,69 +1,78 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+// 1. Import Router components
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import './App.css'; // Assuming you still need CSS
 
-// 1. IMPORT ALL NECESSARY COMPONENTS
+// 2. Import Page Components (ensure these files exist and export these names)
+import Homepage from './Homepage'; 
+import Chatpage from './Chatpage';
+// Ensure you create this file: src/Helppage.js
+import Helppage from './Helppage'; 
 
-import Homebutton from "./Homebutton"; 
-import Chatbutton from "./Chatbutton";
-import Helpbutton from "./Helpbutton"; 
+// Component for the persistent header with the Home button and other links
+const Header = () => {
+  return (
+    <nav style={{ 
+        display: 'flex', 
+        justifyContent: 'space-between', 
+        alignItems: 'center', 
+        padding: '10px', 
+        backgroundColor: '#37404a', 
+        color: 'Grey, Black' 
+    }}>
+      {/* 🏠 Home Button (Top Left Corner) */}
+      {/* Link to="/" is correct for the Home page */}
+      <Link to="/" style={{ color: 'white', textDecoration: 'none', fontSize: '1.5em' }}>
+        🏠 Home
+      </Link>
+      
+      {/* Navigation Links for other pages */}
+      <div style={{ display: 'flex', gap: '20px' }}>
+        {/* Link to the Chat Page (Path: /chat) */}
+        <Link to="/chat" style={{ color: 'white', textDecoration: 'none' }}>
+          Chat
+        </Link>
+        {/* Link to the Help Page (Path: /help) */}
+        <Link to="/help" style={{ color: 'white', textDecoration: 'none' }}>
+          Help
+        </Link>
+      </div>
+    </nav>
+  );
+};
 
-// 2. DEFINE THE SINGLE APP COMPONENT
+
+// Main application component
 export default function App() {
-    // Handler functions for all buttons
-    function handleHomeClick() {
-        alert("Welcome to the homepage");
-    }
-
-    function handleChatClick() {
-        alert("Welcome to the chat page");
-    }
-
-    function handleHelpClick() {
-        alert("Welcome to the help page"); 
-    }
-
-    // Combine all JSX into one return statement
-    return (
-        <div className="App">
-            
-            {/* --- HOME BUTTON/PAGE SECTION --- */}
-            <div> 
-                <h1> Speak 2 MLK</h1>
-                <Homebutton
-                    classname="HOME"
-                    text="HOME"
-                    onclick={handleHomeClick}
-                />
-            </div>
-            
-            {/* --- CHAT BUTTON/PAGE SECTION --- */}
-            <div>
-                <h1>How can I help you today</h1>
-                <Chatbutton
-                    classname="CHAT"
-                    text="CHAT"
-                    onclick={handleChatClick}
-                />
-            </div>
-            
-            {/* --- HELP BUTTON/PAGE SECTION --- */}
-            <div>
-                <h1>Below you can find some useful information that could help with your chating experience</h1>
-                <Helpbutton
-                    classname="HELP"
-                    text="HELP"
-                    onclick={handleHelpClick}
-                />
-            </div>
-
-            {/* --- Original React Logo Section (Optional) --- */}
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                {/* ... other standard React content ... */}
-            </header>
-
-        </div>
-    );
-}
-
-// All other duplicate function App() definitions and const test have been removed.
+  // All logic (like the button handlers) should be removed if they are not used.
+  // We only need one return statement for the entire app structure.
+  
+  return (
+    // 1. Router wraps the entire application
+    <Router>
+      {/* 2. Header (with Home Button) is outside Routes, so it is persistent */}
+      <Header />
+      
+      <div className="app-content" style={{ padding: '20px' }}>
+        {/* 3. Routes defines the page content based on the URL */}
+        <Routes>
+          {/* Route for the Home Page (Path: /) */}
+          <Route path="/" element={<Homepage />} />
+          
+          {/* Route for the Chat Page (Path: /chat) */}
+          <Route path="/chat" element={<Chatpage />} />
+          
+          {/* Route for the Help Page (Path: /help) */}
+          {/* Note: The link uses /help, the route must match */}
+          <Route path="/help" element={<Helppage />} /> 
+          
+          {/* Optional: Add a 404/Not Found route */}
+          <Route path="*" element={<h1>404 - Page Not Found</h1>} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
+  
+  
+  
