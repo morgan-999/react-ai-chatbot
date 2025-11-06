@@ -1,44 +1,110 @@
 import React, { useState } from 'react';
+import Message from './Message'; // Import the new Message component
 
 const Chatpage = () => {
   const [input, setInput] = useState('');
-  const [response, setResponse] = useState('Ask me anything!');
+  // Change state to an array to hold all messages
+  const [messages, setMessages] = useState([
+    { text: 'Hello! I am ready to discuss any topic. Ask me anything!', side: 'right' }
+  ]);
+
+// New state: typing indicator
+const [isTyping, setIsTyping] = useState(false);
 
   const handleSend = () => {
-    // 1. **Capture User Input**
-    const userMessage = input;
+    if (!input.trim() || isTyping) return; // Don't send empty messages
 
-    // 2. **Think about the answer** (Simulated logic for now)
-    let botResponse = '';
-    if (userMessage.toLowerCase().includes('hello')) {
-      botResponse = 'Hello there! How can I help you today?';
-    } else if (userMessage.toLowerCase().includes('react')) {
-      botResponse = 'React is a popular JavaScript library for building user interfaces.';
+    const userMessageText = input;
+    
+    // 1. Add user message to the chat
+    const newUserMessage = { text: userMessageText, side: 'left' };
+    setMessages(prevMessages => [...prevMessages, newUserMessage]);
+    setInput(''); // Clear input field
+
+// set the typing indicator on
+    setIsTyping(true);
+    setTimeout(() => {
+
+
+    // 2. Simulate AI thinking and response
+    let botResponseText = '';
+    if (userMessageText.toLowerCase().includes('hello')) {
+      botResponseText = 'Hello there! How can I help you today?';
+    } else if (userMessageText.toLowerCase().includes('react')) {
+      botResponseText = 'React is a popular JavaScript library for building user interfaces.';
     } else {
-      botResponse = `Thanks for asking about: "${userMessage}". I am an AI, and this is my simulated response.`;
+      botResponseText = `Thanks for asking about: "${userMessageText}". I am an AI, and this is my simulated response.`;
     }
+    
+    // 3. Add bot message after a short delay (for effect)
+    const newBotMessage = { text: botResponseText, side: 'right' };
+    
+    // Update the message array with both messages
+    setMessages(prevMessages => [...prevMessages, newBotMessage]);
 
-    // 3. **Give a response**
-    setResponse(botResponse);
+    // turn the indicator off
+    setIsTyping(false);
+
+  }, 2000); //2000 millisecs aka 2seconds
     setInput(''); // Clear input field
   };
 
   return (
-    <div>
-      <h1>Chat 2 MLK</h1>
-      <div style={{ border: '1px solid #ccc', padding: '10px', minHeight: '100px', marginBottom: '10px' }}>
-        <p>MLK: {response}</p>
+    <div style={{ 
+      display: 'flex', 
+      flexDirection: 'column', 
+      height: 'calc(100vh - 80px)', // Adjust height to account for header/footer
+      padding: '20px'
+    }}>
+      
+      {/* Chat Messages Display Area */}
+      <div style={{ flexGrow: 1, overflowY: 'auto', marginBottom: '10px' }}>
+        {messages.map((msg, index) => (
+          // Use the Message component to render each message
+          <Message key={index} text={msg.text} side={msg.side} />
+        ))}
+
+        {/*new display indicator*/}
+        {isTyping && (
+          <Message
+          //The three dots (...)
+          text="• • •"
+          side="right"
+          />
+        )}
+
       </div>
-      <input
-        type="text"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-        placeholder="Type your message here..."
-        style={{ width: '80%', padding: '10px' }}
-      />
-      <button onClick={handleSend} style={{ padding: '10px 20px', marginLeft: '10px' }}>
-        Send
-      </button>
+      
+      {/* Input Bar (Styled to look like your image) */}
+      <div style={{ 
+        display: 'flex', 
+        alignItems: 'center', 
+        padding: '10px', 
+        backgroundColor: 'rgba(255, 255, 255, 0.8)', // Semi-transparent white
+        borderRadius: '25px', 
+        border: '1px solid #ccc'
+      }}>
+        
+        {/* Plus Button */}
+        <button style={{ fontSize: '24px', marginRight: '10px', background: 'none', border: 'none', cursor: 'pointer' }}>
+          +
+        </button>
+        
+        {/* Text Input */}
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          onKeyPress={(e) => { if (e.key === 'Enter') handleSend(); }} // Allows sending with Enter key
+          placeholder="Type a message to Martin Luther King..."
+          style={{ flexGrow: 1, border: 'none', padding: '10px 0', outline: 'none', backgroundColor: 'transparent' }}
+        />
+        
+        {/* Send Button */}
+        <button onClick={handleSend} style={{ background: 'none', border: 'none', cursor: 'pointer', marginLeft: '10px' }}>
+          <span style={{ fontSize: '24px' }}>&#x27A4;</span> {/* Right arrow symbol */}
+        </button>
+      </div>
     </div>
   );
 };

@@ -1,31 +1,51 @@
-.App {
-  text-align: center;
+/* 1. Reset and Apply Global Gradient */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  
+  /* Black and Grey Gradient (Dark grey top to lighter grey bottom) */
+  background: linear-gradient(to bottom, #333333, #666666);
+  background-attachment: fixed; /* Ensures gradient covers full height and doesn't scroll with content */
+  
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+
+.App {
+  /* This ensures the application container stretches to fill the whole height */
+  min-height: 100vh; 
+}
+
+
+/* The header is now styled directly in App.js to be persistent, 
+   but we need to ensure this class doesn't use a solid background. */
+.App-header {
+  
+ 
+  color: white; 
+}
+
+/* 4. Optional: Clean up unused or conflicting styles */
 .App-logo {
+  /* Keeping the logo style, though you might not be using it anymore */
   height: 40vmin;
   pointer-events: none;
 }
 
+.App-link {
+  color: #61dafb;
+}
+
+/* 5. Keep Media Query and Animation if your logo is still there */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
