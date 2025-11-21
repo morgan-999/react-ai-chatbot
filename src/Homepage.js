@@ -13,7 +13,7 @@ const Homepage = () => {
       />
       </Link>
       <h1>Welcome to the Home Page!</h1>
-      <p>Click the Chat button to start a conversation.</p>
+      <p>Click the Chat button or Martin Luther King to start a conversation.</p>
     </div>
   );
 };
