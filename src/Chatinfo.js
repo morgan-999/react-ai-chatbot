@@ -1,4 +1,4 @@
-if (userMessageLower.includes('hello')) {
+/*if (userMessageLower.includes('hello')) {
     // Greeting
     botResponseText = 'Hello there! How may I be of assistance to you today?';
   } 
@@ -29,4 +29,5 @@ if (userMessageLower.includes('hello')) {
   // --- DEFAULT CATCH-ALL RESPONSE (First Person) ---
   else {
     botResponseText = `That is a thoughtful question about: "${userMessageText}". While I may not have an immediate answer, I hope my thoughts on justice and equality can guide you.`;
-  }
+  } 
+  */

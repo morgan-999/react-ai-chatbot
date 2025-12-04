@@ -11,7 +11,7 @@ const Chatpage = () => {
 // New state: typing indicator
 const [isTyping, setIsTyping] = useState(false);
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!input.trim() || isTyping) return; // Don't send empty messages
 
     const userMessageText = input;
@@ -23,7 +23,7 @@ const [isTyping, setIsTyping] = useState(false);
 
 // set the typing indicator on
     setIsTyping(true);
-    setTimeout(() => {
+    setTimeout(async() => {
 
 
     /// 2. Simulate AI thinking and response
@@ -32,6 +32,7 @@ const userMessageLower = userMessageText.toLowerCase();
 
     
     // 3. Add bot message after a short delay (for effect)
+     botResponseText = await sendMessageToBackend(userMessageText);
     const newBotMessage = { text: botResponseText, side: 'right' };
     
     // Update the message array with both messages
@@ -105,3 +106,27 @@ const userMessageLower = userMessageText.toLowerCase();
 };
 
 export default Chatpage;
+
+
+// connection to backend 29/11/25
+async function sendMessageToBackend(userMessageText){
+    try {
+      const response = await fetch("http://localhost:4000/api/message",{
+        method: "POST",
+        headers: { "Content-Type": "application/json"},
+        body: JSON.stringify({text: userMessageText})
+      });
+
+      const data = await response.json();
+      return data.message;
+    } catch (error) {
+        console.error("Backend error:", error);
+        return "Sorry, I do not understand and cannot respond right now.";
+    }
+    }
+
+
+
+
+
+
