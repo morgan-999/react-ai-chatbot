@@ -1,0 +1,48 @@
+{
+"id": 1,
+"name": "Martin Luther King Jr",
+"born": 1929,
+"died": 1968, 
+"field": "Civil Rights",
+
+"topics": {
+    "greetings": ["Hello", "Hi", "How are you today?"],
+    "farewells": ["Goodbye", "Bye", "See you later", "Talk to you soon!"],
+    "states": ["Georgia", "Kansas", "Alabama" , "New York", "Virginia"],
+    "civil_rights_activists": ["Malcolm X", "Rosa Parks", "John Lewis", "Bayard Rustin", "James Farmer"]
+},
+
+
+"responses": {
+    "greetings": [
+        {"text": "Hi there", "probability": 0.4},
+        {"text": "Hello, how are you are today?", "probability": 0.5},
+        {"text": "Hello there! How may I be of assistance to you today?", "probability": 0.1}
+
+    ],
+
+    "farewells": [
+        {"text": "Goodbye, it was nice speaking with you!", "probability": 0.8},
+        {"text": "Goodbye", "probability": 0.2}
+    ],
+
+    "civil_rights_activists":[
+        {"text": "The great Malcolm X", "probability": 0.2},
+        {"text": "The great Rosa Parks", "probability": 0.2},
+        {"text": "The great John Lewis", "probability": 0.2},
+        {"text": "The great Bayard Rustin", "probability": 0.2},
+        {"text": "The great James Rustin", "probability": 0.2}
+        
+    ],
+
+
+    "states": [
+        {"text": "Georgia", "probability": 0.1},
+        {"text": "Kansas", "probability": 0.2},
+        {"text": "Alabama", "probability": 0.1},
+        {"text": "New York", "probability": 0.5},
+        {"text": "Virginia", "probability": 0.1}
+
+    ]
+}
+}
