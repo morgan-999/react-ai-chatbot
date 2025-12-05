@@ -81,23 +81,34 @@ const userMessageLower = userMessageText.toLowerCase();
         border: '1px solid #ccc'
       }}>
         
-        {/* Plus Button */}
-        <button style={{ fontSize: '24px', marginRight: '10px', background: 'none', border: 'none', cursor: 'pointer' }}>
+      {/* Plus Button */}
+      <button 
+          type="button"
+          aria-label="Upload attachment"
+          style={{ fontSize: '24px', marginRight: '10px', background: 'none', border: 'none', cursor: 'pointer' }}
+        >
           +
         </button>
         
         {/* Text Input */}
         <input
+          id="message-input"
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          onKeyPress={(e) => { if (e.key === 'Enter') handleSend(); }} // Allows sending with Enter key
+          onKeyPress={(e) => { if (e.key === 'Enter') handleSend(); }}
           placeholder="Type a message to Martin Luther King..."
+          aria-label="Message input"
           style={{ flexGrow: 1, border: 'none', padding: '10px 0', outline: 'none', backgroundColor: 'transparent' }}
         />
         
         {/* Send Button */}
-        <button onClick={handleSend} style={{ background: 'none', border: 'none', cursor: 'pointer', marginLeft: '10px' }}>
+        <button 
+          type="button"
+          onClick={handleSend}
+          aria-label="Send message"
+          style={{ background: 'none', border: 'none', cursor: 'pointer', marginLeft: '10px' }}
+        >
           <span style={{ fontSize: '24px' }}>&#x27A4;</span> {/* Right arrow symbol */}
         </button>
       </div>
