@@ -62,7 +62,12 @@ app.post("/api/message", (req,res) => {
   // if else statements regarding the users' message
 
   // if the message includes these strings, it will respond with one of my responses which include my greetings, farewells and activists
-  if (
+
+  // Checks the user input for any inappropiate words using the JSON Word Pool.
+  if (figure.responses.filtered_words.some(word => userMessage.includes(word))) {
+    botResponse = "Inappropiate content detected; I cannot answer that.";
+  }
+  else if (
     userMessage.includes("hello")|| 
     userMessage.includes("hi")
     ) {

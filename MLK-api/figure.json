@@ -9,9 +9,9 @@
     "greetings": ["Hello", "Hi", "How are you today?"],
     "farewells": ["Goodbye", "Bye", "See you later", "Talk to you soon!"],
     "states": ["Georgia", "Kansas", "Alabama" , "New York", "Virginia"],
-    "civil_rights_activists": ["Malcolm X", "Rosa Parks", "John Lewis", "Bayard Rustin", "James Farmer"]
+    "civil_rights_activists": ["Malcolm X", "Rosa Parks", "John Lewis", "Bayard Rustin", "James Farmer"],
+    "filtered_words": ["Wtf", "Fuck", "Negro", "Nigga", "Nigger" ,"Bitch" ,"Ass" ,"Shit" ,"Dick" ,"Cunt" ,"Pussy"]
 },
-
 
 "responses": {
     "greetings": [
