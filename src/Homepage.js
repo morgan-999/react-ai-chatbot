@@ -8,7 +8,7 @@ const Homepage = () => {
       <Link to="/chat">
       <img
         src={MLKLogo}
-        alt="Chat"
+        alt="Martin Luther King Jr."
         style={{ width: '150px', height: 'auto', borderRadius: '50%', marginBottom: '20px'}}
       />
       </Link>

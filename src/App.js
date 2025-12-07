@@ -21,10 +21,13 @@ export default function App() {
   return (
     // 1. Router wraps the entire application
     <Router>
-      {/* 2. Header (with Home Button) is outside Routes, so it is persistent */}
+      {/* Skip to main content link */}
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <Header />
       
-      <div className="app-content" style={{ padding: '20px' }}>
+      <main id="main-content" className="app-content" style={{ padding: '20px' }}>
         {/* 3. Routes defines the page content based on the URL */}
         <Routes>
           {/* Route for the Home Page (Path: /) */}
@@ -40,7 +43,7 @@ export default function App() {
           {/* Optional: Add a 404/Not Found route */}
           <Route path="*" element={<h1>404 - Page Not Found</h1>} />
         </Routes>
-      </div>
+      </main>
     </Router>
   );
 };
