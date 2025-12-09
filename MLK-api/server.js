@@ -16,12 +16,31 @@ const figure = JSON.parse(fs.readFileSync("./figure.json", "utf8"));
 const topics = figure.topics || {};
 const responses = figure.responses || {};
 
+function pickRandomResponses(responsesArray){
+  if(!responsesArray || responsesArray.length === 0){
+    return "I am not sure how to answer that";
+  
+  }
+
+  const rand = Math.random();
+  let cumulative = 0;
+
+  for(const r of responsesArray) {
+    cumulative += r.probability;
+    if(rand <= cumulative) return r.text;
+  
+  }
+
+  return responsesArray[0].text;
+}
+
+
 function searchResponse(text) {
   const lowerCase = text.toLowerCase();
 
   for (const [topic, keywords] of Object.entries(topics))  {
-    if (keywords.some((keyword) => lowerCase === keyword.toLowerCase())){
-      return responses[topic]?.[0]?.text || "I am not sure how to answer that";
+    if (keywords.some((keyword) => lowerCase.includes(keyword.toLowerCase()))){
+      return pickRandomResponses(responses[topic]);
     }
   }
   return "I am not sure how to answer that";
@@ -59,33 +78,22 @@ app.get("/api/status", (req, res) => {
   res.status(200).json({ staus: 'ok'});
 });
 
-// New code 26/11
-// Scripted responses being used 
 
-function pickRandom(responses) { //allows random responses to be picked
-  const rand = Math.random(); 
-  let cumulative = 0;
 
-  for (const r of responses) {
-    cumulative += r.probability;
-    if (rand <= cumulative) return r.text;
-  }
-  return responses[0].text; 
-}
 
 // This posts the message to the backend
 
 
  app.post("/api/message", (req,res) => {
 
-  console.log("Raw req.body:", req.body);
+  
   const userMessage = req.body.text?.toLowerCase().trim() || "";
   
-  console.log("Processed userMessage:", userMessage);
+  console.log("User's message:", userMessage);
 
   const result = searchResponse(userMessage);
 
-  console.log("Responding", result);
+  console.log("MLK's response:", result);
 
    res.json({ message : result });
 
