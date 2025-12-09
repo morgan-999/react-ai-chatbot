@@ -15,9 +15,9 @@
 
 "responses": {
     "greetings": [
-        {"text": "Hi there", "probability": 0.4},
+        {"text": "Hi there", "probability": 0.2},
         {"text": "Hello, how are you are today?", "probability": 0.5},
-        {"text": "Hello there! How may I be of assistance to you today?", "probability": 0.1}
+        {"text": "Hello there! How may I be of assistance to you today?", "probability": 0.3}
 
     ],
 
