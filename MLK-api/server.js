@@ -39,7 +39,7 @@ function searchResponse(text) {
   const lowerCase = text.toLowerCase();
 
   for (const [topic, keywords] of Object.entries(topics))  {
-    if (keywords.some((keyword) => lowerCase === keyword.toLowerCase())){
+    if (keywords.some((keyword) => lowerCase.includes(keyword.toLowerCase()))){
       return pickRandomResponses(responses[topic]);
     }
   }
@@ -74,8 +74,6 @@ app.get("/api/figure/field", (req, res) => {
     res.json({field: figure.field});
 });
 
-// New code 26/11
-// Scripted responses being used 
 
 
 
@@ -84,14 +82,14 @@ app.get("/api/figure/field", (req, res) => {
 
  app.post("/api/message", (req,res) => {
 
-  console.log("Raw req.body:", req.body);
+  
   const userMessage = req.body.text?.toLowerCase().trim() || "";
   
-  console.log("Processed userMessage:", userMessage);
+  console.log("User's message:", userMessage);
 
   const result = searchResponse(userMessage);
 
-  console.log("Responding", result);
+  console.log("MLK's response:", result);
 
    res.json({ message : result });
 

@@ -6,7 +6,7 @@
 "field": "Civil Rights",
 
 "topics": {
-    "greetings": ["Hello", "Hi", "How are you today?"],
+    "greetings": ["Hello", "Hi", "How are you today?", "Hey"],
     "farewells": ["Goodbye", "Bye", "See you later", "Talk to you soon!"],
     "states": ["State","Georgia", "Kansas", "Alabama" , "New York", "Virginia"],
     "civil_rights_activists": ["Activist","Malcolm X", "Rosa Parks", "John Lewis", "Bayard Rustin", "James Farmer"],
