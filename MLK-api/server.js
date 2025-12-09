@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import fs from "fs"; 
+import userEvent from "@testing-library/user-event";
 
 
 const PORT = 4000; // The port i want my back end to run at 
@@ -12,12 +13,26 @@ app.use(express.json());
 // Load figure data
 const figure = JSON.parse(fs.readFileSync("./figure.json", "utf8"));
 
+const topics = figure.topics || {};
+const responses = figure.responses || {};
+
+function searchResponse(text) {
+  const lowerCase = text.toLowerCase();
+
+  for (const [topic, keywords] of Object.entries(topics))  {
+    if (keywords.some((keyword) => lowerCase === keyword.toLowerCase())){
+      return responses[topic]?.[0]?.text || "I am not sure how to answer that";
+    }
+  }
+  return "I am not sure how to answer that";
+}
+
+
+
 // When you run http://localhost:4000 it will say Historical figure API is running.
 app.get("/", (req, res) => {
   res.send("Historical figure API is running.")
 });
-
-
 
 
 // returns full information, currently about MLK
@@ -55,43 +70,25 @@ function pickRandom(responses) { //allows random responses to be picked
 }
 
 // This posts the message to the backend
-app.post("/api/message", (req,res) => {
-  const userMessage = req.body.text.toLowerCase().trim();
-  let botResponse = "I'm not sure how to answer that.";
 
-  // if else statements regarding the users' message
 
-  // if the message includes these strings, it will respond with one of my responses which include my greetings, farewells and activists
+ app.post("/api/message", (req,res) => {
 
-  // Checks the user input for any inappropiate words using the JSON Word Pool.
-  if (figure.topics.filtered_words.some(word => userMessage.includes(word))) {
-    botResponse = "Inappropiate content detected; I cannot answer that.";
-  }
-  else if (
-    userMessage.includes("hello")|| 
-    userMessage.includes("hi")
-    ) {
-    botResponse= pickRandom(figure.responses.greetings);
-  }
-  else if (
-    userMessage.includes("bye")||
-    userMessage.includes("goodbye")|| 
-    userMessage.includes("see you later")||
-    userMessage.includes("soon")
-    ) {
-    botResponse= pickRandom(figure.responses.farewells);
-  }
-  else if (
-    userMessage.includes("activists") 
-    ) {
-    botResponse= pickRandom(figure.responses.civil_rights_activists);
+  console.log("Raw req.body:", req.body);
+  const userMessage = req.body.text?.toLowerCase().trim() || "";
   
-  }
+  console.log("Processed userMessage:", userMessage);
 
-    res.json({message: botResponse});
+  const result = searchResponse(userMessage);
 
-});
+  console.log("Responding", result);
+
+   res.json({ message : result });
+
+ });
+
  
+
 app.listen(PORT, () => {
   console.log("Historical figure API running at http://localhost:4000");
 });
