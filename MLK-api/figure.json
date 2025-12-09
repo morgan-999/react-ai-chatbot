@@ -10,7 +10,7 @@
     "farewells": ["Goodbye", "Bye", "See you later", "Talk to you soon!"],
     "states": ["Georgia", "Kansas", "Alabama" , "New York", "Virginia"],
     "civil_rights_activists": ["Malcolm X", "Rosa Parks", "John Lewis", "Bayard Rustin", "James Farmer"],
-    "filtered_words": ["Wtf", "Fuck", "Negro", "Nigga", "Nigger" ,"Bitch" ,"Ass" ,"Shit" ,"Dick" ,"Cunt" ,"Pussy"]
+    "filtered_words": ["Wtf", "Fuck" ,"Bitch" ,"Ass" ,"Shit"]
 },
 
 "responses": {
@@ -42,6 +42,11 @@
         {"text": "Alabama", "probability": 0.1},
         {"text": "New York", "probability": 0.5},
         {"text": "Virginia", "probability": 0.1}
+
+    ],
+
+    "filtered_words": [
+        {"text": "Inappropiate content detected; I cannot answer that"}
 
     ]
 }
