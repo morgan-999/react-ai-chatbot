@@ -7,31 +7,58 @@ const Header = () => {
     <nav
       style={{
         display: 'flex',
-        justifyContent: 'flex-start',
+        justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '10px',
+        padding: '10px 30px',
         backgroundColor: '#37404a',
-        color: 'Grey, Black',
-        gap: '20px',
       }}
     >
-      {/* Home Button (Top Left corner) */}
-      {/* Link to="/" is correct for the Home page */}
-      <Link to="/" style={{ color: 'White', textDecoration: 'Times New Roman', fontSize: '1.0em' }}>
+      <div style={{ display: 'flex', gap: '20px' }}>
+      <Link
+      to="/"
+      className="nav-link"
+      style={{
+        color: 'White',
+        fontFamily: 'Times New Roman',
+        textDecoration: 'none',
+        fontSize: '1.0em'
+        }}>
         Home
       </Link>
 
-      {/* Navigation Links for other pages */}
-      <div style={{ display: 'flex', gap: '20px' }}>
-        {/* Link to the Chat Page (Path: /chat) */}
-        <Link to="/chat" style={{ color: 'white', textDecoration: 'Times New Roman' }}>
+     
+        <Link
+        to="/chat"
+        className="nav-link"
+        style={{
+          color: 'white',
+          fontFamily: 'Times New Roman',
+          textDecoration: 'none'
+          }}>
           Chat
         </Link>
-        {/* Link to the Help Page (Path: /help) */}
-        <Link to="/help" style={{ color: 'white', textDecoration: 'Times New Roman' }}>
+        <Link
+        to="/help"
+        className="nav-link"
+        style={{
+          color: 'white',
+          fontFamily: 'Times New Roman',
+          textDecoration: 'none'
+          }}>
           Help
         </Link>
-      </div>
+        </div>
+
+        <Link
+        to="/history"
+        className="nav-link"
+        style={{
+          color: 'white',
+          fontFamily: 'Times New Roman',
+          textDecoration: 'none'
+        }}>
+          History
+        </Link>
     </nav>
   );
 };

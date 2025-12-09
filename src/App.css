@@ -71,3 +71,59 @@ html, body {
 .skip-link:focus {
   top: 0;
 }
+/* for the time*/
+.timestamp-glow {
+  font-size: 11px;
+  color: #ffffff;
+  margin-top: 5px;
+  /* Soft cyan/white glow */
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6), 0 0 12px rgba(97, 218, 251, 0.4);
+}
+
+/*for the buttons*/
+@keyframes button-pulse {
+  0% {
+    transform: scale(1);
+    color: white;
+    text-shadow: none;
+  }
+  50% {
+    transform: scale(1.1);
+    color: #61dafb;
+    text-shadow: 0 0 8px rgba(97, 218, 251, 0.8);
+  }
+  100% {
+    transform: scale(1);
+    color: white;
+    text-shadow: none;
+  }
+}
+
+.nav-link:hover {
+  animation: button-pulse 0.8s ease-in-out infinite;
+  display: inline-block;
+}
+
+
+/* Animation for the rippling dots */
+@keyframes dot-ripple {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+}
+
+.ripple-dot {
+  display: inline-block;
+  margin: 0 2px;
+  animation: dot-ripple 1s infinite ease-in-out;
+}
+
+/* Stagger the animation for each dot */
+.ripple-dot:nth-child(1) { animation-delay: 0s; }
+.ripple-dot:nth-child(2) { animation-delay: 0.2s; }
+.ripple-dot:nth-child(3) { animation-delay: 0.4s; }

@@ -1,23 +1,26 @@
-import React from 'react';
-// 1. Import Router components
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, } from 'react-router-dom';
-import './App.css'; // Assuming you still need CSS
-
-// 2. Import Page Components (ensure these files exist and export these names)
+import './App.css'; 
 import Homepage from './Homepage'; 
 import Chatpage from './Chatpage';
-// Ensure you create this file: src/Helppage.js
 import Helppage from './Helppage'; 
+import History from './History';
 import Header from './Header';
 
-
-
-
-// Main application component
 export default function App() {
-  // All logic (like the button handlers) should be removed if they are not used.
-  // We only need one return statement for the entire app structure.
-  
+
+const [historyData, setHistoryData] = useState([]);
+
+const saveSession = (currentMessages) => {
+  const newSession = {
+    date: new Date().toLocaleString(),
+    messages: currentMessages
+  };
+
+  setHistoryData(prev => [...prev, newSession]);
+  alert("Chat Saved");
+};
+
   return (
     // 1. Router wraps the entire application
     <Router>
@@ -34,11 +37,11 @@ export default function App() {
           <Route path="/" element={<Homepage />} />
           
           {/* Route for the Chat Page (Path: /chat) */}
-          <Route path="/chat" element={<Chatpage />} />
-          
-          {/* Route for the Help Page (Path: /help) */}
-          {/* Note: The link uses /help, the route must match */}
+          <Route path="/chat" element={<Chatpage onSave={saveSession}/>} />
+
           <Route path="/help" element={<Helppage />} /> 
+
+          <Route path="/history" element={<History historyData={historyData} />} />
           
           {/* Optional: Add a 404/Not Found route */}
           <Route path="*" element={<h1>404 - Page Not Found</h1>} />

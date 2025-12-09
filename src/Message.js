@@ -53,12 +53,11 @@ const Message = ({ text, side, time}) => {
     </div>
 
     {/* the timestamp display*/}
-    <small style={{
-      fontSize: '11px',
-      color: '#aaa',
-      marginTop: '5px',
+    <small
+    className="timestamp-glow"
+    style={{
       marginRight: isBot ? '50px' : '0px',
-      marginLeft: isBot ? '0px' : '50px'
+      marginLeft: isBot ? '0px' : '50px',
     }}>
       {time}
       </small>

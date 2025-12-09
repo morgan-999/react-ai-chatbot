@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Message from './Message'; // Import the new Message component
 
-const Chatpage = () => {
+const Chatpage = ({ onSave }) => {
   const [input, setInput] = useState('');
   // Change state to an array to hold all messages
   const [messages, setMessages] = useState([
@@ -44,6 +44,14 @@ useEffect(() => {
     setInput(''); // Clear input field
     setIsTyping(true);
 
+    const calculateDelay = () => {
+      const baseDelay = 1500;
+      const extraDelay = userMessageText.length * 50;
+      return Math.min(Math.max(baseDelay + extraDelay, 1500), 5000);
+    };
+
+    const dynamicDelay = calculateDelay();
+
     setTimeout(async() => {
 
     // 3. Add bot message after a short delay (for effect)
@@ -63,8 +71,16 @@ useEffect(() => {
     // Update the message array with both messages
     setMessages(prevMessages => [...prevMessages, newBotMessage]);
     setIsTyping(false);
-  }, 2000);
+  }, dynamicDelay);
     setInput('');
+  };
+
+  const handleSaveClick = () => {
+    if (messages.length > 1) { 
+      onSave(messages);
+    } else {
+      alert("Nothing to save yet!");
+    }
   };
 
   return (
@@ -90,14 +106,38 @@ useEffect(() => {
         {/*new display indicator*/}
         {isTyping && (
           <Message
-          //The three dots (...)
-          text="• • •"
+          text={
+            <span>
+            MLK is thinking
+            <span className="ripple-dot">•</span>
+            <span className="ripple-dot">•</span>
+            <span className="ripple-dot">•</span>
+            </span>
+          }
           side="right"
           />
         )}
         <div ref={messagesEndRef}/>
 
       </div>
+
+      <button 
+        onClick={handleSaveClick}
+        style={{
+          alignSelf: 'center',
+          position: 'sticky',
+          marginTop: '15px',
+          padding: '8px 20px',
+          borderRadius: '20px',
+          backgroundColor: '#37404a',
+          color: 'white',
+          border: 'none',
+          cursor: 'pointer',
+          fontWeight: 'bold'
+        }}
+      >
+        Save Chat
+      </button>
       
       {/* Input Bar (Styled to look like your image) */}
       <div style={{ 
