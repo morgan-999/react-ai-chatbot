@@ -1,11 +1,13 @@
 import React from 'react';
 // Assuming you saved these in src/
-import MlkLogo from './MLK - Logo.png'; 
+import MlkLogo from './MLK - Logo.png';
+import OfflineMLK from './Offline - MLK.png';
 import UserAvatar from './User - Logo.png'; // Make sure you have this image
 
 // The 'side' prop will determine if it's the user (left) or bot (right)
-const Message = ({ text, side, time}) => {
+const Message = ({ text, side, time, isOnline}) => {
   const isBot = side === 'right'; 
+  const MLKImagePath = isOnline ? MlkLogo : OfflineMLK;
   
   return (
     <div style={{
@@ -18,7 +20,7 @@ const Message = ({ text, side, time}) => {
     <div style={{
       display: 'flex',
       justifyContent: isBot ? 'flex-end' : 'flex-start', // Pushes bot messages right, user messages left
-      alignItems: 'flex-start',
+      alignItems: 'center',
     }}>
       
       {/* 1. Left Avatar (User) and Text for User messages */}
@@ -45,7 +47,7 @@ const Message = ({ text, side, time}) => {
       {/* 3. Right Avatar (MLK) and Text for Bot messages */}
       {isBot && (
         <img 
-          src={MlkLogo} 
+          src={MLKImagePath} 
           alt="MLK Avatar" 
           style={{ width: '40px',  borderRadius: '50%', marginLeft: '10px' }} 
         />

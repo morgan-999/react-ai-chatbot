@@ -10,6 +10,7 @@ const Chatpage = ({ onSave }) => {
 
 // New state: typing indicator
 const [isTyping, setIsTyping] = useState(false);
+const [isOnline, setIsOnline] = useState(true);
 
 const messagesEndRef = useRef(null);
 
@@ -55,7 +56,7 @@ useEffect(() => {
     setTimeout(async() => {
 
     // 3. Add bot message after a short delay (for effect)
-     const botResponseText = await sendMessageToBackend(userMessageText);
+     const botResponseText = await sendMessageToBackend(userMessageText, setIsOnline);
      const botNow = new Date();
      const botTimestamp = botNow.toLocaleTimeString([], {
       hour: '2-digit',
@@ -72,7 +73,6 @@ useEffect(() => {
     setMessages(prevMessages => [...prevMessages, newBotMessage]);
     setIsTyping(false);
   }, dynamicDelay);
-    setInput('');
   };
 
   const handleSaveClick = () => {
@@ -100,6 +100,7 @@ useEffect(() => {
           text={msg.text}
           side={msg.side}
           time={msg.time}
+          isOnline={isOnline}
           />
         ))}
 
@@ -115,6 +116,7 @@ useEffect(() => {
             </span>
           }
           side="right"
+          isOnline={isOnline}
           />
         )}
         <div ref={messagesEndRef}/>
@@ -191,7 +193,7 @@ export default Chatpage;
 
 
 // connection to backend 29/11/25
-async function sendMessageToBackend(userMessageText){
+async function sendMessageToBackend(userMessageText, setIsOnline){
     try {
       const response = await fetch("http://localhost:4000/api/message",{
         method: "POST",
@@ -199,16 +201,14 @@ async function sendMessageToBackend(userMessageText){
         body: JSON.stringify({text: userMessageText})
       });
 
+      if (!response.ok) { setIsOnline(false); throw new Error('Backend responded with a bad status.');}
+      setIsOnline(true);
+
       const data = await response.json();
       return data.message;
     } catch (error) {
         console.error("Backend error:", error);
-        return "Sorry, I do not understand and cannot respond right now.";
+        setIsOnline(false);
+        return "I'm sorry, I have gone down, come back at a later time.";
     }
-    }
-
-
-
-
-
-
+  }

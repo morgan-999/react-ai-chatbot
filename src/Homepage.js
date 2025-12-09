@@ -1,11 +1,20 @@
 import React from 'react';
-import MLKLogo from './MLK - Logo.png';
 import { Link } from 'react-router-dom';
 
-const Homepage = () => {
+const Homepage = ({MLKLogo}) => {
+  const OFFLINE_IMAGE_PATH_FRAGMENT = './Offline - MLK.png';
+  const isOffline = MLKLogo.endsWith(OFFLINE_IMAGE_PATH_FRAGMENT);
+  const linkTo = isOffline ? '#' : '/chat';
+  const linkStyle = {
+    pointerEvents: isOffline ? 'none' : 'auto',
+    cursor: isOffline ? 'default' : 'pointer',
+    opacity: isOffline ? 0.7 : 1,
+    display: 'inline-block'
+  };
+
   return (
     <div style={{ textAlign: 'center', padding: '20px', color: 'white'}}> {/* this centers all elements*/}
-      <Link to="/chat">
+      <Link to={linkTo} style={linkStyle}>
       <img
         src={MLKLogo}
         alt="Martin Luther King Jr."

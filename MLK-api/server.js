@@ -55,6 +55,10 @@ app.get("/api/figure/field", (req, res) => {
     res.json({field: figure.field});
 });
 
+app.get("/api/status", (req, res) => {
+  res.status(200).json({ staus: 'ok'});
+});
+
 // New code 26/11
 // Scripted responses being used 
 
