@@ -45,7 +45,7 @@ const Header = () => {
           fontFamily: 'Times New Roman',
           textDecoration: 'none'
           }}>
-          Help
+          Settings & Help
         </Link>
         </div>
 
