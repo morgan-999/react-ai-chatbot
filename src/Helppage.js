@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Helppage = () => {
   const [openCards, setOpenCards] = useState({
@@ -12,6 +12,16 @@ const Helppage = () => {
 
   const [issueReport, setIssueReport] = useState('');
   const [reportSubmitted, setReportSubmitted] = useState(false);
+  
+  // Text size state with localStorage
+  const [textSize, setTextSize] = useState(() => {
+    return localStorage.getItem('chatTextSize') || 'medium';
+  });
+
+  // Save to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem('chatTextSize', textSize);
+  }, [textSize]);
 
   const toggleCard = (cardName) => {
     setOpenCards(prev => ({
@@ -26,42 +36,33 @@ const Helppage = () => {
       return;
     }
 
-    // TODO: Add backend API call here later
-    // Example for future:
-    // const response = await fetch('YOUR_BACKEND_URL/report', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify({ issue: issueReport })
-    // });
-
-    console.log('Issue reported:', issueReport); // For testing now
+    console.log('Issue reported:', issueReport);
     
     setReportSubmitted(true);
     setIssueReport('');
     
-    // Reset the "thank you" message after 3 seconds
     setTimeout(() => setReportSubmitted(false), 3000);
   };
 
   return (
+
     <div style={{ color: 'white', padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
       <h1 style={{ textAlign: 'center' }}>Settings</h1>
 
       {/* Accessibility Settings */}
       <div 
-        onClick={() => toggleCard('accessibility')}
         style={{ 
           padding: '20px',
           backgroundColor: 'rgba(255, 255, 255, 0.1)',
           borderRadius: '15px',
           marginBottom: '20px',
-          cursor: 'pointer',
           transition: 'background-color 0.2s ease'
         }}
-        onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.15)'}
-        onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)'}
       >
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div 
+          onClick={() => toggleCard('accessibility')}
+          style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', cursor: 'pointer' }}
+        >
           <h2 style={{ margin: '0' }}>Accessibility Settings</h2>
           <span style={{ 
             fontSize: '24px',
@@ -75,17 +76,80 @@ const Helppage = () => {
         </div>
         
         <div style={{
-          maxHeight: openCards.accessibility ? '200px' : '0',
+          maxHeight: openCards.accessibility ? '400px' : '0',
           opacity: openCards.accessibility ? 1 : 0,
           overflow: 'hidden',
           transition: 'max-height 0.4s ease, opacity 0.4s ease'
         }}>
-          <p style={{ 
-            marginTop: '15px', 
-            marginBottom: '0'
-          }}>
-            Adjust text size, colours, and keyboard options to suit your needs.
-          </p>
+          <div style={{ marginTop: '20px', textAlign: 'left' }} onClick={(e) => e.stopPropagation()}>
+            <h3 style={{ marginTop: '0', marginBottom: '8px', fontSize: '16px' }}>Chat Text Size</h3>
+            <p style={{ marginTop: '0', marginBottom: '12px', color: 'rgba(255, 255, 255, 0.9)', fontSize: '14px' }}>
+              Adjust the size of text in chat messages to improve readability.
+            </p>
+            
+            <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+              <button
+                type="button"
+                onClick={() => setTextSize('small')}
+                aria-label="Set text size to small"
+                style={{
+                  padding: '10px 20px',
+                  backgroundColor: textSize === 'small' ? '#61dafb' : 'rgba(255, 255, 255, 0.1)',
+                  color: textSize === 'small' ? '#000' : 'white',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  borderRadius: '8px',
+                  fontSize: '14px',
+                  fontWeight: textSize === 'small' ? 'bold' : 'normal',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                Small
+              </button>
+              
+              <button
+                type="button"
+                onClick={() => setTextSize('medium')}
+                aria-label="Set text size to medium"
+                style={{
+                  padding: '10px 20px',
+                  backgroundColor: textSize === 'medium' ? '#61dafb' : 'rgba(255, 255, 255, 0.1)',
+                  color: textSize === 'medium' ? '#000' : 'white',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  borderRadius: '8px',
+                  fontSize: '14px',
+                  fontWeight: textSize === 'medium' ? 'bold' : 'normal',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                Medium
+              </button>
+              
+              <button
+                type="button"
+                onClick={() => setTextSize('large')}
+                aria-label="Set text size to large"
+                style={{
+                  padding: '10px 20px',
+                  backgroundColor: textSize === 'large' ? '#61dafb' : 'rgba(255, 255, 255, 0.1)',
+                  color: textSize === 'large' ? '#000' : 'white',
+                  border: '1px solid rgba(255, 255, 255, 0.3)',
+                  borderRadius: '8px',
+                  fontSize: '14px',
+                  fontWeight: textSize === 'large' ? 'bold' : 'normal',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                Large
+              </button>
+            </div>
+            
+            <p style={{ marginTop: '15px', marginBottom: '0', color: 'rgba(255, 255, 255, 0.7)', fontSize: '13px', fontStyle: 'italic' }}>
+              Current selection: <strong>{textSize.charAt(0).toUpperCase() + textSize.slice(1)}</strong>
+            </p>
+          </div>
         </div>
       </div>
 
@@ -117,17 +181,36 @@ const Helppage = () => {
         </div>
         
         <div style={{
-          maxHeight: openCards.privacy ? '200px' : '0',
+          maxHeight: openCards.privacy ? '500px' : '0',
           opacity: openCards.privacy ? 1 : 0,
           overflow: 'hidden',
           transition: 'max-height 0.4s ease, opacity 0.4s ease'
         }}>
-          <p style={{ 
-            marginTop: '15px', 
-            marginBottom: '0'
-          }}>
-            We respect your privacy. Messages are not saved and no personal data is stored.
-          </p>
+          <div style={{ marginTop: '20px', textAlign: 'left' }}>
+            <p style={{ marginTop: '0', marginBottom: '15px' }}>
+              We respect your privacy and are committed to protecting your personal information.
+            </p>
+            
+            <h3 style={{ marginTop: '15px', marginBottom: '8px', fontSize: '16px' }}>What We Store</h3>
+            <p style={{ marginTop: '0', marginBottom: '15px', color: 'rgba(255, 255, 255, 0.9)' }}>
+              By default, your conversations are not saved on our servers. Messages are processed in real-time and discarded after generating a response.
+            </p>
+
+            <h3 style={{ marginTop: '15px', marginBottom: '8px', fontSize: '16px' }}>Save Chat Feature</h3>
+            <p style={{ marginTop: '0', marginBottom: '15px', color: 'rgba(255, 255, 255, 0.9)' }}>
+              If you choose to save a chat session, the conversation is stored locally on your device only. We do not upload or store saved chats on our servers.
+            </p>
+
+            <h3 style={{ marginTop: '15px', marginBottom: '8px', fontSize: '16px' }}>No Personal Data Collection</h3>
+            <p style={{ marginTop: '0', marginBottom: '15px', color: 'rgba(255, 255, 255, 0.9)' }}>
+              We do not collect, store, or share any personal information such as your name, email, or location.
+            </p>
+
+            <h3 style={{ marginTop: '15px', marginBottom: '8px', fontSize: '16px' }}>Data Security</h3>
+            <p style={{ marginTop: '0', marginBottom: '0', color: 'rgba(255, 255, 255, 0.9)' }}>
+              Your messages are transmitted securely to our AI server for processing. We use industry-standard security practices to protect your data during transmission.
+            </p>
+          </div>
         </div>
       </div>
 
