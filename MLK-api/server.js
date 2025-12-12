@@ -37,15 +37,27 @@ function pickRandomResponses(responsesArray){
 
 function searchResponse(text) {
   const lowerCase = text.toLowerCase();
+  const words = lowerCase.split(/\s+/); // splits input into individual words 
 
   for (const [topic, keywords] of Object.entries(topics))  {
-    if (keywords.some((keyword) => lowerCase.includes(keyword.toLowerCase()))){
+    if (keywords.some((keyword) => {
+
+      const lowerKeyword = keyword.toLowerCase().trim();
+
+      return lowerKeyword.includes("")
+      ? lowerCase.includes(lowerKeyword)
+      : words.includes(lowerKeyword);
+    }))
+    
+    {
       return pickRandomResponses(responses[topic]);
     }
+
   }
   return "I am not sure how to answer that";
 }
 
+// It will search my scripts to see if it matches, if not returns a default message
 
 
 // When you run http://localhost:4000 it will say Historical figure API is running.

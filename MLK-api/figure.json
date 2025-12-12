@@ -1,53 +1,126 @@
 {
-"id": 1,
-"name": "Martin Luther King Jr",
-"born": 1929,
-"died": 1968, 
-"field": "Civil Rights",
-
-"topics": {
-    "greetings": ["Hello", "Hi", "How are you today?", "Hey"],
-    "farewells": ["Goodbye", "Bye", "See you later", "Talk to you soon!"],
-    "states": ["State","Georgia", "Kansas", "Alabama" , "New York", "Virginia"],
-    "civil_rights_activists": ["Activist","Malcolm X", "Rosa Parks", "John Lewis", "Bayard Rustin", "James Farmer"],
-    "filtered_words": ["Wtf", "Fuck" ,"Bitch" ,"Ass" ,"Shit"]
-},
-
-"responses": {
-    "greetings": [
-        {"text": "Hi there", "probability": 0.2},
-        {"text": "Hello, how are you are today?", "probability": 0.5},
-        {"text": "Hello there! How may I be of assistance to you today?", "probability": 0.3}
-
-    ],
-
-    "farewells": [
-        {"text": "Goodbye, it was nice speaking with you!", "probability": 0.8},
-        {"text": "Goodbye", "probability": 0.2}
-    ],
-
-    "civil_rights_activists":[
-        {"text": "The great Malcolm X", "probability": 0.2},
-        {"text": "The great Rosa Parks", "probability": 0.2},
-        {"text": "The great John Lewis", "probability": 0.2},
-        {"text": "The great Bayard Rustin", "probability": 0.2},
-        {"text": "The great James Rustin", "probability": 0.2}
-        
-    ],
-
-
-    "states": [
-        {"text": "Georgia", "probability": 0.1},
-        {"text": "Kansas", "probability": 0.2},
-        {"text": "Alabama", "probability": 0.1},
-        {"text": "New York", "probability": 0.5},
-        {"text": "Virginia", "probability": 0.1}
-
-    ],
-
-    "filtered_words": [
-        {"text": "Inappropiate content detected; I cannot answer that"}
-
-    ]
-}
-}
+    "id": 1,
+    "name": "Martin Luther King Jr",
+    "born": 1929,
+    "died": 1968, 
+    "field": "Civil Rights",
+    
+    "topics": {
+        "greetings": ["Hello", "Hi", "How are you today?", "Hey"],
+        "wellbeing": ["I am okay", "I am good", "I am good thanks"],
+        "farewells": ["Goodbye", "Bye", "See you later", "Talk to you soon!"],
+        "states": ["state","Georgia", "Kansas", "Alabama" , "New York", "Virginia"],
+        "civil_rights_activists": ["activist","Malcolm X", "Rosa Parks", "John Lewis", "Bayard Rustin", "James Farmer"],
+        "filtered_words": ["Wtf", "Fuck" ,"Bitch" ,"Ass" ,"Shit"],
+        "birth": ["birth", "birthday", "born"],
+        "work": ["life", "work", "lived", "alive"],
+        "death":["die", "passed", "assassinated", "killed", "murdered"],
+        "nobel_peace_prize": ["awarded, prize"],
+        "justice": ["justice", "injustice", "equality", "freedom", "rights","oppression" ],
+        "nonviolence": ["nonviolence", "peace", "nonviolent", "peaceful"],
+        "hope": ["hope", "faith"],
+        "community": ["community", "unity"],
+        "social_media": ["social media", "online", "post", "internet", "comment section"],
+        "technology_ai": ["technology", "AI"],
+        "youth": ["youth", "young people"],
+        "racism": ["racism", "racism today"],
+        "family": ["family"]
+    },
+    
+    "responses": {
+        "greetings": [
+            {"text": "A warm greeting can affirm the dignity of every person. May our exchange be giuded by respect, understanding, and a shared pursuit of justice", "probability": 0.2},
+            {"text": "Hello, how are you are today?", "probability": 0.5},
+            {"text": "Hello there! How may I be of assistance to you today?", "probability": 0.3}
+    
+        ],
+    
+        "wellbeing": [
+            {"text": "I am glad to hear that. May your strength and well-being guide you in uplifting those around you.", "probability": 0.5},
+            {"text": "I'm pleased to hear you're doing well.", "probability": 0.5}
+        ],
+    
+        "farewells": [
+            {"text": "As we part, may your steps continue toward compassion and justice", "probability": 0.2},
+            {"text": "Farewell. Thank you for this conversation. May we continue to walk in the light of justice.", "probability": 0.8}
+        ],
+    
+        "civil_rights_activists":[
+            {"text": "The great Malcolm X", "probability": 0.2},
+            {"text": "The great Rosa Parks", "probability": 0.2},
+            {"text": "The great John Lewis", "probability": 0.2},
+            {"text": "The great Bayard Rustin", "probability": 0.2},
+            {"text": "The great James Rustin", "probability": 0.2}
+            
+        ],
+    
+    
+        "states": [
+            {"text": "Georgia", "probability": 0.1},
+            {"text": "Kansas", "probability": 0.2},
+            {"text": "Alabama", "probability": 0.1},
+            {"text": "New York", "probability": 0.5},
+            {"text": "Virginia", "probability": 0.1}
+    
+        ],
+    
+        "filtered_words": [
+            {"text": "Inappropiate content detected; I cannot answer that"}
+    
+        ],
+    
+        "birth":[
+            {"text": "I was born on January 15, 1929. My birthday is now observed as a national holiday."}
+        ],
+    
+        "work": [
+            {"text": "I lived during a critical time of deep-seated racial segregation and injustice in the United States, which was the central challenge of my work."}
+        ],
+    
+        "death": [
+            {"text": "My life was tragically taken on April 4, 1968, in Memphis, Tennessee. My commitment to nonviolence remains my legacy."}
+        ],
+    
+        "nobel_peace_prize": [
+            {"text": "I am honored to say that I had received a nobel peace prize due to my devotion towards equality for all."}
+        ],
+    
+        "justice": [
+            {"text": "I did incur injustice at times. True justice demands confronting systems that deny human dignity. Equality is not only a principle but a shared promise we must strive to fufill."}
+        ],
+    
+        "nonviolence": [
+            {"text": "Nonviolence is a force born of love and moral strength. It seeks not the defeat of opponents, but the transformation of society through courage and compassion."}
+        ], 
+    
+        "hope": [
+            {"text": "Hope endures when people work together for a change."}
+        ],
+    
+        "community": [
+            {"text": "A just community grows from empathy and shared humanity. When we uplift one another, we move closer to a world where every person is valued."}
+        ],
+    
+        "social_media": [
+            {"text": "In the digital age, words can travel farther than ever before. Using our voices responsibly online can help build understanding rather than division."}
+        ],
+    
+        "technology_ai": [
+            {"text": "Technology should serve humanity, not replace compassion. When guided by ethics, innovation can help build a more equitable and understanding society."}
+        ],
+    
+        "youth": [
+            {"text": "Young people bring energy, clarity, and imagination to social change. Their boldness can awaken society to possibilities that older generations may overlook."}
+        ],
+    
+        "racism": [
+            {"text": "Racism continues in both visible and subtle forms. Adressing it requires confronting harmful structures while fostering understanding and shared responsibility."}
+        ],
+    
+        "family": [
+            {"text": "I was the second born in a family of three, I have an older brother called Alfred and a younger sister Christine. I then later created a family of my own with my wife Coretta Scott and we had four children."}
+        ]
+    
+    
+    }
+    }
