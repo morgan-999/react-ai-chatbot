@@ -36,7 +36,7 @@ function pickRandomResponses(responsesArray){
 
 
 function searchResponse(text) {
-  const lowerCase = text.toLowerCase();
+  const lowerCase = text.toLowerCase().replace(/[^\w\s]/g,""); // This removes all punction used by the user
   const words = lowerCase.split(/\s+/); // splits input into individual words 
 
   for (const [topic, keywords] of Object.entries(topics))  {
