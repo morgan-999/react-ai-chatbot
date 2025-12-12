@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // Assuming you saved these in src/
 import MlkLogo from './MLK - Logo.png';
 import OfflineMLK from './Offline - MLK.png';
@@ -8,6 +8,37 @@ import UserAvatar from './User - Logo.png'; // Make sure you have this image
 const Message = ({ text, side, time, isOnline}) => {
   const isBot = side === 'right'; 
   const MLKImagePath = isOnline ? MlkLogo : OfflineMLK;
+  
+  // Get text size from localStorage
+  const [textSize, setTextSize] = useState(() => {
+    return localStorage.getItem('chatTextSize') || 'medium';
+  });
+
+  // Listen for changes to text size
+  useEffect(() => {
+    const handleStorageChange = () => {
+      setTextSize(localStorage.getItem('chatTextSize') || 'medium');
+    };
+    
+    // Check for changes periodically (for same-tab updates)
+    const interval = setInterval(() => {
+      const newSize = localStorage.getItem('chatTextSize');
+      if (newSize && newSize !== textSize) {
+        setTextSize(newSize);
+      }
+    }, 500);
+    
+    return () => {
+      clearInterval(interval);
+    };
+  }, [textSize]);
+
+  // Font size mapping
+  const fontSizes = {
+    small: '14px',
+    medium: '16px',
+    large: '20px'
+  };
   
   return (
     <div style={{
@@ -39,7 +70,8 @@ const Message = ({ text, side, time, isOnline}) => {
         borderRadius: '20px',
         color: isBot ? 'black' : 'white',
         backgroundColor: isBot ? '#E5E5EA' : '#007AFF',
-        order: isBot ? -1 : 0 // Use order to swap position relative to text and avatar
+        order: isBot ? -1 : 0,
+        fontSize: fontSizes[textSize] // Apply text size here
       }}>
         {text}
       </div>
