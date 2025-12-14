@@ -39,14 +39,16 @@ function searchResponse(text) {
   const lowerCase = text.toLowerCase().replace(/[^\w\s]/g,""); // This removes all punction used by the user
   const words = lowerCase.split(/\s+/); // splits input into individual words 
 
+  const wordSet = new Set(words);
+
   for (const [topic, keywords] of Object.entries(topics))  {
     if (keywords.some((keyword) => {
 
       const lowerKeyword = keyword.toLowerCase().trim();
 
       return lowerKeyword.includes("")
-      ? lowerCase.includes(lowerKeyword)
-      : words.includes(lowerKeyword);
+      ? new RegExp(`\\b${lowerKeyword}\\b`).test(lowerCase)
+      : wordSet.has(lowerKeyword);
     }))
     
     {

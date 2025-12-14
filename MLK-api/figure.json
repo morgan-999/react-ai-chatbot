@@ -8,27 +8,32 @@
     "topics": {
         "greetings": ["Hello", "Hi", "How are you today?", "Hey"],
         "wellbeing": ["I am okay", "I am good", "I am good thanks"],
-        "question_about_my_wellbeing": ["How are you today?", "How are you", "I am good how are you"],
+        "question_about_my_wellbeing": ["How are you today?", "How are you", "I am great how are you"],
         "farewells": ["Goodbye", "Bye", "See you later", "Talk to you soon!"],
         "states": ["state","Georgia", "Kansas", "Alabama" , "New York", "Virginia"],
         "civil_rights_activists": ["activist","Malcolm X", "Rosa Parks", "John Lewis", "Bayard Rustin", "James Farmer"],
         "filtered_words": ["Wtf", "Fuck" ,"Bitch" ,"Ass" ,"Shit"],
-        "birth": ["birth", "birthday", "born"],
-        "work": ["life", "work", "lived", "alive"],
-        "death":["die", "passed", "assassinated", "killed", "murdered"],
-        "nobel_peace_prize": ["awarded, prize"],
-        "justice": ["justice", "injustice", "equality", "freedom", "rights","oppression" ],
-        "nonviolence": ["nonviolence", "peace", "nonviolent", "peaceful"],
-        "hope": ["hope", "faith"],
-        "community": ["community", "unity"],
-        "social_media": ["social media", "online", "post", "internet", "comment section"],
-        "technology_ai": ["technology", "AI"],
-        "youth": ["youth", "young people"],
-        "racism": ["racism", "racism today"],
-        "family": ["family"],
-        "name": ["name", "What's your name", "What is your name", "Who are you"],
+        "birth": ["Birth", "Birthday", "Born"],
+        "work": ["Life", "Work", "Lived", "Alive"],
+        "death":["Die", "Passed", "Assassinated" , "Killed", "Murdered"],
+        "nobel_peace_prize": ["Awarded", "Prize", "When did you win a nobel peace prize"],
+        "justice": ["Justice", "Injustice", "Equality", "Freedom", "Rights", "Oppression" ],
+        "nonviolence": ["Nonviolence", "Nonviolent", "Peaceful"],
+        "hope": ["Hope", "Faith"],
+        "community": ["Community", "Unity"],
+        "social_media": ["Social media", "Online", "Post", "Internet", "Comment section"],
+        "technology_ai": ["Technology", "AI"],
+        "youth": ["Youth", "Young people"],
+        "racism": ["Racism", "Racism today"],
+        "family": ["Family"],
+        "name": ["Name", "What's your name", "What is your name", "Who are you"],
         "parent_names": ["What is your parents names", "Who are you parents", "Tell me about your parents"],
-        "children_names": ["What are the names of your kids, What are the names of your children", "How many children do you have", "How many kids do you have"]
+        "children_names": ["Kids", "Children", "What are the names of your kids, What are the names of your children", "How many children do you have", "How many kids do you have", "Do you have kids"],
+        "music": ["Music", "What was music like in your lifetime"],
+        "popular_musicians": ["Popular musicians"],
+        "dream": ["Dream", "Speech", "What was your dream", "What were your dreams", "Tell me about your I have a dream speech"],
+        "civil_rights_act": ["Civil Rights Act", "Civil Rights law", "Civil Rights"],
+        "voting_rights_act": ["Voting Rights Act", "Voting"]
     },
     
     "responses": {
@@ -73,7 +78,7 @@
         ],
     
         "filtered_words": [
-            {"text": "Inappropiate content detected; I cannot answer that"}
+            {"text": "Inappropiate content detected, I cannot answer that"}
     
         ],
     
@@ -90,7 +95,7 @@
         ],
     
         "nobel_peace_prize": [
-            {"text": "I am honored to say that I had received a nobel peace prize due to my devotion towards equality for all."}
+            {"text": "I am honored to say that I had received a nobel peace prize in 1964 due to my devotion towards equality for all. This made me the youngest man to receive a nobel peace prize at the time at the age of 35."}
         ],
     
         "justice": [
@@ -139,6 +144,29 @@
 
         "children_names": [
             {"text": "I have four children, named: Yolanda Denise, Martin Luther III, Dexter Scott and Bernice Albertine"}
+        ],
+
+        "music": [
+            {"text": "The era I lived through, especially the 1950s and 60s, was musically transformative! We saw the emergence of Motown, Gospel, and the birth of Rock and Roll, all movements that gave voice to our struggle and our hope."}
+        ],
+
+        "popular_musicians": [
+            {"text": "Elvis Presley was immensely popular and had a profound cultural influence during my lifetime. He was often referred to as 'The King of Rock and Roll."}
+        ],
+
+        "dream": [
+            {"text": "I had a dream all people would someday be sisters and brothers in a world, governed by equality, justice and peace.", "probability": 0.25},
+            {"text": "I had a dream that my four little chhildren will one day live in a nation where they will not be judged by the skin color but by the content of their character.", "probability": 0.25},
+            {"text": "I had a dream that one day on the red hills of Georgia the sons of former sons of former slave owners will be able to sit down and together at the table of brotherhood.", "probability": 0.25},
+            {"text": "I had a dream that one day even the state of Mississippi, a state sweltering with heat of heat of injustice, sweltering with heat of oppression, will be transformed into an oasis of freedom and justice.", "probability": 0.25}
+        ],
+
+        "civil_rights_act": [
+            {"text": "This was a great day for America. The passage of this legislation is a tribute to the wisdom, the courage, and persistence of the American people. It outlaws discrimination based on race, color, religion, sex, or national origin."}
+        ],
+
+        "voting_rights_act": [
+            {"text": "Ah another monumental moment! This prohibited the racial discrimination of in voting."}
         ]
     
     
