@@ -27,6 +27,7 @@
         "racism": ["Racism", "Racism today"],
         "family": ["Family"],
         "name": ["Name", "What's your name", "What is your name", "Who are you"],
+        "wifes_name": ["What is your wifes name", "What is your wife's name"],
         "parent_names": ["What is your parents names", "Who are you parents", "Tell me about your parents"],
         "children_names": ["Kids", "Children", "What are the names of your kids, What are the names of your children", "How many children do you have", "How many kids do you have", "Do you have kids"],
         "music": ["Music", "What was music like in your lifetime"],
@@ -137,6 +138,10 @@
         "name": [
             {"text": "My name is Martin Luther King Jr, named after my father Reverend Martin Luther King"}
         ], 
+
+        "wifes_name": [
+            {"text": "My wife's name is Coretta Scott."}
+        ],
 
         "parent_names": [
             {"text": "I was named after my father Reverend Martin Luther King and my mother's name is Alberta Williams King"}
