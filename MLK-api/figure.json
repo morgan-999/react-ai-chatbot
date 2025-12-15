@@ -8,15 +8,16 @@
     "topics": {
         "greetings": ["Hello", "Hi", "How are you today?", "Hey"],
         "wellbeing": ["I am okay", "I am good", "I am good thanks"],
-        "bad_wellbeing": ["Not good", "I'm sad", "Feeling down", "I'm struggling", "I feel bad","Having a bad day"],
+        "users_name": ["My name is", "I am", "I am called"],
+        "bad_wellbeing": ["Not good", "I am sad", "Feeling down", "I am struggling", "I feel bad","Having a bad day"],
         "question_about_my_wellbeing": ["How are you today?", "How are you", "I am great how are you", "Are you okay", "Are you ok", "How are you doing"],
         "farewells": ["Goodbye", "Bye", "See you later", "Talk to you soon!", "Thank you for your help"],
         "states": ["state", "Georgia", "Kansas", "Alabama" , "New York", "Virginia"],
-        "civil_rights_activists": ["activist","Malcolm X", "Rosa Parks", "John Lewis", "Bayard Rustin", "James Farmer"],
+        "civil_rights_activists": ["Name me a civil rights activist", "Name me an activist relevant to your time.", "Name me an activist", "Malcolm X", "Rosa Parks", "John Lewis", "Bayard Rustin", "James Farmer"],
         "filtered_words": ["Wtf", "Fuck" , "Bitch" ,"Ass" ,"Shit"],
         "birth": ["Birth", "Birthday", "Born"],
         "work": ["Life", "Work", "Lived", "Alive"],
-        "death":["Die", "Passed", "Assassinated" , "Killed", "Murdered"],
+        "death":["Die", "Passed away", "Assassinated" , "Killed", "Murdered"],
         "nobel_peace_prize": ["Awarded", "Prize", "When did you win a nobel peace prize"],
         "justice": ["Justice", "Injustice", "Equality", "Freedom", "Rights", "Oppression" ],
         "nonviolence": ["Nonviolence", "Nonviolent", "Peaceful", "How to protest"],
@@ -29,7 +30,7 @@
         "family": ["Family"],
         "name": ["What's your name", "What is your name", "Who are you","Tell me who you are"],
         "wifes_name": ["What is your wifes name", "What is your wife's name", "Who is your wife", "Who was your wife"],
-        "parent_names": ["What is your parents names", "Who are you parents", "Tell me about your parents"],
+        "parent_names": ["What is your parents names", "Who are you parents", "Tell me about your parents", "Parents"],
         "children_names": ["Kids", "Children", "What are the names of your kids, What are the names of your children", "How many children do you have", "How many kids do you have", "Do you have kids"],
         "music": ["Music", "What was music like in your lifetime"],
         "popular_musicians": ["Popular musician", "Popular musician"],
@@ -41,6 +42,7 @@
         "mlk_today": ["Mlk today", "Relevance today", "Lessons today", "Modern world"],
         "thank_you": ["Thank you", "Thanks", "Thanks a lot", "Cheers"],
         "sorry": ["Sorry", "I apologise", "My apologies", "Forgive me", "Excuse me"]
+        
     },
     
     "responses": {
@@ -52,8 +54,12 @@
         ],
     
         "wellbeing": [
-            {"text": "I am glad to hear that. May your strength and well-being guide you in uplifting those around you.", "probability": 0.5},
+            {"text": "I am glad to hear that. May your strength and wellbeing guide you in uplifting those around you.", "probability": 0.5},
             {"text": "I'm pleased to hear you're doing well.", "probability": 0.5}
+        ],
+
+        "users_name": [
+            {"text": "Thank you for sharing your name. Every name carries a story and a sense of dignity. I'm glad to have the opportunity to speak with you."}
         ],
 
         "bad_wellbeing": [
@@ -73,11 +79,11 @@
         ],
     
         "civil_rights_activists":[
-            {"text": "The great Malcolm X.", "probability": 0.2},
-            {"text": "The great Rosa Parks.", "probability": 0.2},
-            {"text": "The great John Lewis.", "probability": 0.2},
-            {"text": "The great Bayard Rustin.", "probability": 0.2},
-            {"text": "The great James Rustin.", "probability": 0.2}
+            {"text": "The great Malcolm X. Although we had different forms of activism, he was a prominent figure during the civil rights era.", "probability": 0.2},
+            {"text": "The great Rosa Parks. She was a quiet yet powerful force in the struggle for justice. Her refusal to surrender her seat was not an act of defiance born of anger, but of dignity and moral courage. Her action sparked the Montgomery Bus Boycott and reminded the nation that ordinary people, standing firm in conscience, can ignite extraordinary change.", "probability": 0.2},
+            {"text": "The great John Lewis. He was a courageous leader of the civil rights movement whose commitment to nonviolence never wavered. As a young activist, he stood on the front lines of the struggle for justice, enduring violence in Selma and elsewhere to secure voting rights. His life reflected the power of disciplined courage, moral conviction, and steadfast faith in the dignity of all people.", "probability": 0.2},
+            {"text": "The great Bayard Rustin. He was a key strategist of the civil rights movement and a leading advocate of nonviolence. He played a central role in organizing the March on Washington and helped shape the movement's commitment to peaceful protest. Though he often worked behind the scenes, his intellect, discipline, and moral clarity strengthened the struggle for justice and equality.", "probability": 0.2},
+            {"text": "The great James Farmer. He was a leading figure in the civil rights movement and a founder of the Congress of Racial Equality. He played a major role in organizing the Freedom Rides, using nonviolent direct action to challenge segregation and advance racial justice.", "probability": 0.2}
             
         ],
     

@@ -59,7 +59,7 @@ function searchResponse(text) {
   return "I am not sure how to answer that";
 }
 
-// It will search my scripts to see if it matches, if not returns a default message
+// It will search my scripts to see if it matches, if not listed, returns a default message
 
 
 // When you run http://localhost:4000 it will say Historical figure API is running.
@@ -68,12 +68,12 @@ app.get("/", (req, res) => {
 });
 
 
-// returns full information, currently about MLK
+// Returns full information, currently about MLK
 app.get("/api/figure", (req, res) => {
     res.json(figure);
 });
 
-// returns MLK's name,birth,death
+// Returns MLK's name,birth,death
 app.get("/api/figure/life", (req, res) => {
     res.json({
         name: figure.name,
@@ -83,7 +83,7 @@ app.get("/api/figure/life", (req, res) => {
     });
 });
 
-// returns MLK'S field of work
+// Returns MLK'S field of work
 app.get("/api/figure/field", (req, res) => {
     res.json({field: figure.field});
 });
