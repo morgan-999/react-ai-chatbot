@@ -1,5 +1,38 @@
 # Getting Started with Create React App
 
+hi ben group 15s issuse on how to run our code
+
+step 1:
+
+rm -rf node_modules package-lock.json
+
+step 2:
+
+npm install --save-dev react-scripts@5
+
+step 3:
+
+npm install
+
+step 4:
+
+npm start
+
+enjoy chatting
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

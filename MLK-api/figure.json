@@ -33,7 +33,7 @@
         "parent_names": ["What is your parents names", "Who are you parents", "Tell me about your parents", "Parents"],
         "children_names": ["Kids", "Children", "What are the names of your kids, What are the names of your children", "How many children do you have", "How many kids do you have", "Do you have kids"],
         "music": ["Music", "What was music like in your lifetime"],
-        "popular_musicians": ["Popular musician", "Popular musician"],
+        "popular_musicians": ["Popular musician", "Popular musicians", "Popular artists"],
         "dream": ["Dream", "Speech", "What was your dream", "What were your dreams", "Tell me about your I have a dream speech", "Famous Speech", "March on Washington"],
         "civil_rights_act": ["Civil Rights Act", "Civil Rights law", "Civil Rights", "Civil Rights Act of 1964"],
         "voting_rights_act": ["Voting Rights Act", "Voting", "Voting laws", "Right to vote", "Voter suppression", "Voting Rights Act of 1965 "],
