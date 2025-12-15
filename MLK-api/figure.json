@@ -8,38 +8,44 @@
     "topics": {
         "greetings": ["Hello", "Hi", "How are you today?", "Hey"],
         "wellbeing": ["I am okay", "I am good", "I am good thanks"],
-        "question_about_my_wellbeing": ["How are you today?", "How are you", "I am great how are you"],
-        "farewells": ["Goodbye", "Bye", "See you later", "Talk to you soon!"],
-        "states": ["state","Georgia", "Kansas", "Alabama" , "New York", "Virginia"],
+        "bad_wellbeing": ["Not good", "I'm sad", "Feeling down", "I'm struggling", "I feel bad","Having a bad day"],
+        "question_about_my_wellbeing": ["How are you today?", "How are you", "I am great how are you", "Are you okay", "Are you ok", "How are you doing"],
+        "farewells": ["Goodbye", "Bye", "See you later", "Talk to you soon!", "Thank you for your help"],
+        "states": ["state", "Georgia", "Kansas", "Alabama" , "New York", "Virginia"],
         "civil_rights_activists": ["activist","Malcolm X", "Rosa Parks", "John Lewis", "Bayard Rustin", "James Farmer"],
-        "filtered_words": ["Wtf", "Fuck" ,"Bitch" ,"Ass" ,"Shit"],
+        "filtered_words": ["Wtf", "Fuck" , "Bitch" ,"Ass" ,"Shit"],
         "birth": ["Birth", "Birthday", "Born"],
         "work": ["Life", "Work", "Lived", "Alive"],
         "death":["Die", "Passed", "Assassinated" , "Killed", "Murdered"],
         "nobel_peace_prize": ["Awarded", "Prize", "When did you win a nobel peace prize"],
         "justice": ["Justice", "Injustice", "Equality", "Freedom", "Rights", "Oppression" ],
-        "nonviolence": ["Nonviolence", "Nonviolent", "Peaceful"],
-        "hope": ["Hope", "Faith"],
+        "nonviolence": ["Nonviolence", "Nonviolent", "Peaceful", "How to protest"],
+        "hope": ["Hope", "Faith", "Courage", "motivation", "Motivates", "Inspiration", "Perserverance"],
         "community": ["Community", "Unity"],
         "social_media": ["Social media", "Online", "Post", "Internet", "Comment section"],
         "technology_ai": ["Technology", "AI"],
-        "youth": ["Youth", "Young people"],
+        "youth": ["Youth", "Young people", "Advice to youth", "Students", "Future leaders"],
         "racism": ["Racism", "Racism today"],
         "family": ["Family"],
-        "name": ["Name", "What's your name", "What is your name", "Who are you"],
-        "wifes_name": ["What is your wifes name", "What is your wife's name"],
+        "name": ["What's your name", "What is your name", "Who are you","Tell me who you are"],
+        "wifes_name": ["What is your wifes name", "What is your wife's name", "Who is your wife", "Who was your wife"],
         "parent_names": ["What is your parents names", "Who are you parents", "Tell me about your parents"],
         "children_names": ["Kids", "Children", "What are the names of your kids, What are the names of your children", "How many children do you have", "How many kids do you have", "Do you have kids"],
         "music": ["Music", "What was music like in your lifetime"],
-        "popular_musicians": ["Popular musicians"],
-        "dream": ["Dream", "Speech", "What was your dream", "What were your dreams", "Tell me about your I have a dream speech"],
-        "civil_rights_act": ["Civil Rights Act", "Civil Rights law", "Civil Rights"],
-        "voting_rights_act": ["Voting Rights Act", "Voting"]
+        "popular_musicians": ["Popular musician", "Popular musician"],
+        "dream": ["Dream", "Speech", "What was your dream", "What were your dreams", "Tell me about your I have a dream speech", "Famous Speech", "March on Washington"],
+        "civil_rights_act": ["Civil Rights Act", "Civil Rights law", "Civil Rights", "Civil Rights Act of 1964"],
+        "voting_rights_act": ["Voting Rights Act", "Voting", "Voting laws", "Right to vote", "Voter suppression", "Voting Rights Act of 1965 "],
+        "background": ["I want to learn about what you did", "What do you do","What did you do", "Can you give me some background on who you are"],
+        "hatred": ["Hatred", "Anger", "Forgiveness"],
+        "mlk_today": ["Mlk today", "Relevance today", "Lessons today", "Modern world"],
+        "thank_you": ["Thank you", "Thanks", "Thanks a lot", "Cheers"],
+        "sorry": ["Sorry", "I apologise", "My apologies", "Forgive me", "Excuse me"]
     },
     
     "responses": {
         "greetings": [
-            {"text": "A warm greeting can affirm the dignity of every person. May our exchange be giuded by respect, understanding, and a shared pursuit of justice", "probability": 0.2},
+            {"text": "A warm greeting can affirm the dignity of every person. May our exchange be guided by respect, understanding, and a shared pursuit of justice.", "probability": 0.2},
             {"text": "Hello, how are you are today?", "probability": 0.5},
             {"text": "Hello there! How may I be of assistance to you today?", "probability": 0.3}
     
@@ -50,8 +56,15 @@
             {"text": "I'm pleased to hear you're doing well.", "probability": 0.5}
         ],
 
+        "bad_wellbeing": [
+            {"text": "I understand. Even in difficult times, acts of courage and kindness can bring hope and change.", "probability": 0.2},
+            {"text": "Challenges test us, but perseverance and community support help us move toward justice and compassion.", "probability": 0.2 },
+            {"text": "It's natural to feel struggle. Remember that working for fairness and love helps both yourself and the world.", "probability": 0.6}
+        ],
+
         "question_about_my_wellbeing": [
-            {"text": "I am doing well, thanks for asking. What can I help you with?"}
+            {"text": "I am doing well, thanks for asking. What can I help you with?", "probability": 0.2},
+            {"text": "Thank you for asking. Let us continue focusing on justice, compassion, and understanding in our discussion.", "probability": 0.8}
         ],
     
         "farewells": [
@@ -60,26 +73,26 @@
         ],
     
         "civil_rights_activists":[
-            {"text": "The great Malcolm X", "probability": 0.2},
-            {"text": "The great Rosa Parks", "probability": 0.2},
-            {"text": "The great John Lewis", "probability": 0.2},
-            {"text": "The great Bayard Rustin", "probability": 0.2},
-            {"text": "The great James Rustin", "probability": 0.2}
+            {"text": "The great Malcolm X.", "probability": 0.2},
+            {"text": "The great Rosa Parks.", "probability": 0.2},
+            {"text": "The great John Lewis.", "probability": 0.2},
+            {"text": "The great Bayard Rustin.", "probability": 0.2},
+            {"text": "The great James Rustin.", "probability": 0.2}
             
         ],
     
     
         "states": [
-            {"text": "Georgia", "probability": 0.1},
-            {"text": "Kansas", "probability": 0.2},
-            {"text": "Alabama", "probability": 0.1},
-            {"text": "New York", "probability": 0.5},
-            {"text": "Virginia", "probability": 0.1}
+            {"text": "Georgia.", "probability": 0.1},
+            {"text": "Kansas.", "probability": 0.2},
+            {"text": "Alabama.", "probability": 0.1},
+            {"text": "New York.", "probability": 0.5},
+            {"text": "Virginia.", "probability": 0.1}
     
         ],
     
         "filtered_words": [
-            {"text": "Inappropiate content detected, I cannot answer that"}
+            {"text": "Inappropriate content detected, I cannot answer that."}
     
         ],
     
@@ -108,7 +121,8 @@
         ], 
     
         "hope": [
-            {"text": "Hope endures when people work together for a change."}
+            {"text": "Hope endures when people work together for a change.", "probability": 0.4},
+            {"text": "Even when progress is slow, hope and courage sustain the struggle for justice. Collective action and moral perseverance can bend the arc of history toward fairness.", "probability": 0.6}
         ],
     
         "community": [
@@ -124,11 +138,12 @@
         ],
     
         "youth": [
-            {"text": "Young people bring energy, clarity, and imagination to social change. Their boldness can awaken society to possibilities that older generations may overlook."}
+            {"text": "Young people bring energy, clarity, and imagination to social change. Their boldness can awaken society to possibilities that older generations may overlook.", "probability": 0.3},
+            {"text": "I emphasized that young people have the energy and vision to create change. Acting with integrity, learning, and compassion empowers them to shape a more just world.", "probability": 0.7}
         ],
     
         "racism": [
-            {"text": "Racism continues in both visible and subtle forms. Adressing it requires confronting harmful structures while fostering understanding and shared responsibility."}
+            {"text": "I faced racism throughout my life especially whilst at work. Racism continues in both visible and subtle forms. Adressing it requires confronting harmful structures while fostering understanding and shared responsibility."}
         ],
     
         "family": [
@@ -136,7 +151,7 @@
         ],
 
         "name": [
-            {"text": "My name is Martin Luther King Jr, named after my father Reverend Martin Luther King"}
+            {"text": "My name is Martin Luther King Jr, named after my father Reverend Martin Luther King."}
         ], 
 
         "wifes_name": [
@@ -156,22 +171,42 @@
         ],
 
         "popular_musicians": [
-            {"text": "Elvis Presley was immensely popular and had a profound cultural influence during my lifetime. He was often referred to as 'The King of Rock and Roll."}
+            {"text": "Elvis Presley was immensely popular and had a profound cultural influence during my lifetime. He was often referred to as 'The King of Rock and Roll'."}
         ],
 
         "dream": [
             {"text": "I had a dream all people would someday be sisters and brothers in a world, governed by equality, justice and peace.", "probability": 0.25},
-            {"text": "I had a dream that my four little chhildren will one day live in a nation where they will not be judged by the skin color but by the content of their character.", "probability": 0.25},
+            {"text": "I had a dream that my four little children will one day live in a nation where they will not be judged by the skin color but by the content of their character.", "probability": 0.25},
             {"text": "I had a dream that one day on the red hills of Georgia the sons of former sons of former slave owners will be able to sit down and together at the table of brotherhood.", "probability": 0.25},
             {"text": "I had a dream that one day even the state of Mississippi, a state sweltering with heat of heat of injustice, sweltering with heat of oppression, will be transformed into an oasis of freedom and justice.", "probability": 0.25}
         ],
 
         "civil_rights_act": [
-            {"text": "This was a great day for America. The passage of this legislation is a tribute to the wisdom, the courage, and persistence of the American people. It outlaws discrimination based on race, color, religion, sex, or national origin."}
+            {"text": "This was a great day for America. The passage of this legislation is a tribute to the wisdom, the courage, and persistence of the American people. It outlaws discrimination based on race, color, religion, sex, or national origin. I would like to be clear that I did not draft the civil rights act. "}
         ],
 
         "voting_rights_act": [
             {"text": "Ah another monumental moment! This prohibited the racial discrimination of in voting."}
+        ],
+
+        "background": [
+            {"text": "I was a leader in the struggle for civil rights and social justice. I dedicated my life to the principles of nonviolence and equality, leading campaigns to end segregation, secure voting rights and promote human dignity. Through speeches, marches advocacy, he inspired people to confront injustice with courage and compassion, emphasising that the path to a just society is guided by love, moral conviction, and persistent action."}
+        ],
+
+        "hatred": [
+            {"text": "Hatred cannot drive out hatred; only love can. Responding to injustice with love and courage is the path toward true change and reconciliation."}
+        ],
+
+        "mlk_today": [
+            {"text": "I hope my teachings on justice, nonviolence, and equality still remain relevant. Confronting racism, economic inequality, and social injustice today can be guided by his principles of moral courage and love."}
+        ],
+
+        "thank_you": [
+            {"text": "You're welcome. Remember, every act of kindness and understanding contributes to a more just and compassionate world."}
+        ],
+
+        "sorry": [
+            {"text": "Acknowledging mistakes is a step toward growth. May we always seek understanding, reconciliation, and justice in our interactions."}
         ]
     
     
