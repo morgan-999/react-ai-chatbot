@@ -6,14 +6,14 @@
     "field": "Civil Rights",
     
     "topics": {
-        "greetings": ["Hello", "Hi", "How are you today?", "Hey"],
+        "greetings": ["Hello", "Hi", "Hey", "Wassup", "Good morning", "Good afternoon", "Yo" ],
         "wellbeing": ["I am okay", "I am good", "I am good thanks"],
         "users_name": ["My name is", "I am", "I am called"],
         "bad_wellbeing": ["Not good", "I am sad", "Feeling down", "I am struggling", "I feel bad","Having a bad day"],
-        "question_about_my_wellbeing": ["How are you today?", "How are you", "I am great how are you", "Are you okay", "Are you ok", "How are you doing"],
-        "farewells": ["Goodbye", "Bye", "See you later", "Talk to you soon!", "Thank you for your help"],
+        "question_about_my_wellbeing": ["How are you this morning", "How are you this afrternoon", "How are you this evening", "How are you", "I am great how are you", "Are you okay", "Are you ok", "How are you doing"],
+        "farewells": ["Goodbye", "Bye", "See you later", "Talk to you soon", "Thank you for your help", "So long", "I hope you day is splendid"],
         "states": ["state", "Georgia", "Kansas", "Alabama" , "New York", "Virginia"],
-        "civil_rights_activists": ["Name me a civil rights activist", "Name me an activist relevant to your time.", "Name me an activist", "Malcolm X", "Rosa Parks", "John Lewis", "Bayard Rustin", "James Farmer"],
+        "civil_rights_activists": ["Name me a civil rights activist", "Name me an activist relevant to your time", "Name me an activist"],
         "filtered_words": ["Wtf", "Fuck" , "Bitch" ,"Ass" ,"Shit"],
         "birth": ["Birth", "Birthday", "Born"],
         "work": ["Life", "Work", "Lived", "Alive"],
@@ -147,6 +147,7 @@
             {"text": "Young people bring energy, clarity, and imagination to social change. Their boldness can awaken society to possibilities that older generations may overlook.", "probability": 0.3},
             {"text": "I emphasized that young people have the energy and vision to create change. Acting with integrity, learning, and compassion empowers them to shape a more just world.", "probability": 0.7}
         ],
+    
     
         "racism": [
             {"text": "I faced racism throughout my life especially whilst at work. Racism continues in both visible and subtle forms. Adressing it requires confronting harmful structures while fostering understanding and shared responsibility."}
